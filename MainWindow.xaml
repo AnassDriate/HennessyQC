@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="CTT BOTTLING QC" Height="450" Width="800">
+        Title="Hennessy QC V1.0.0" Height="450" Width="800">
     <!-- Window Background with Gradient Color -->
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -18,79 +18,59 @@
     <Grid>
         <!-- Main Layout -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*"/>
+            <!-- Left Panel -->
+            <ColumnDefinition Width="4*"/>
+            <!-- Right Panel -->
         </Grid.ColumnDefinitions>
 
         <!-- Left Panel -->
-        <StackPanel Grid.Column="0" Background="LightGray" VerticalAlignment="Stretch">
-            <!-- RF Reader -->
-            <Ellipse Width="50" Height="50" Fill="{Binding RFReaderColor}" Margin="0,20,0,0" />
-            <TextBlock Text="RF Reader" HorizontalAlignment="Center" Margin="0,10,0,20"/>
+        <DockPanel Grid.Column="0" Background="LightGray">
+            <!-- Spacer to Push Content Up -->
+            <StackPanel DockPanel.Dock="Top">
+                <!-- Placeholder for other buttons or content -->
+            </StackPanel>
 
-            <!-- IO Module -->
-            <Ellipse Width="50" Height="50" Fill="{Binding IOModuleColor}" Margin="0,20,0,0"/>
-            <TextBlock Text="IO Module" HorizontalAlignment="Center" Margin="0,10,0,20"/>
-
-            <!-- PLC -->
-            <Ellipse Width="50" Height="50" Fill="{Binding PLCColor}" Margin="0,20,0,0"/>
-            <TextBlock Text="PLC" HorizontalAlignment="Center" Margin="0,10,0,20"/>
-
-            <!-- Buttons -->
-            <Button Content="Settings" Width="150" Height="40" Margin="0,20,0,0" Command="{Binding SettingsCommand}"/>
-            <Button Content="Data Reports" Width="150" Height="40" Margin="0,10,0,0" Command="{Binding DataReportsCommand}"/>
-            <Button Content="About" Width="150" Height="40" Margin="0,10,0,0" Command="{Binding AboutCommand}"/>
-        </StackPanel>
+            <!-- About Button at the Bottom -->
+            <Button Content="About" Height="40" Margin="0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" DockPanel.Dock="Bottom" Command="{Binding AboutCommand}"/>
+        </DockPanel>
 
         <!-- Main Data Section -->
         <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <!-- Top Section -->
+                <RowDefinition Height="Auto"/>
+                <!-- Buttons -->
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1*"/>
+                <!-- Product Count -->
+                <ColumnDefinition Width="1*"/>
+                <!-- Bad Product Count -->
             </Grid.ColumnDefinitions>
 
             <!-- Product Count Circle with Counter -->
-            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,20">
+            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Ellipse Width="200" Height="200" Stroke="Green" StrokeThickness="5"/>
-                <!-- Use a Grid to center the TextBlock inside the Ellipse -->
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Text="{Binding ProductCount}" FontSize="36" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </Grid>
 
             <!-- Bad Product Count Circle with Counter -->
-            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,20">
+            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Ellipse Width="200" Height="200" Stroke="Red" StrokeThickness="5"/>
-                <!-- Use a Grid to center the TextBlock inside the Ellipse -->
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Text="{Binding BadProductCount}" FontSize="36" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </Grid>
 
-            <!-- Stats Panel - Left Column -->
-            <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0">
-                <!-- Stats 1 -->
-                <TextBlock Text="Speed (p/m): " FontSize="16" FontWeight="Bold" Foreground="Black"/>
-                <TextBlock Text="{Binding ProductsPerMinute}" FontSize="16" Foreground="Black" Margin="0,0,0,20"/>
-
-                <!-- Stats 3 -->
-                <TextBlock Text="Scrap: " FontSize="16" FontWeight="Bold" Foreground="Black"/>
-                <TextBlock Text="{Binding ScrapPercentage}" FontSize="16" Foreground="Black" Margin="0,0,0,20"/>
+            <!-- Buttons at the Bottom -->
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,0">
+                <Button Content="Start/Stop" Width="100" Height="30" Command="{Binding StartStopCommand}" Margin="10,0"/>
+                <Button Content="Reset" Width="100" Height="30" Command="{Binding ResetCommand}" Margin="10,0"/>
             </StackPanel>
-
-            <!-- Stats Panel - Right Column -->
-            <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0">
-                <!-- Stats 2 -->
-                <TextBlock Text="Goods: " FontSize="16" FontWeight="Bold" Foreground="Black"/>
-                <TextBlock Text="{Binding GoodsPercentage}" FontSize="16" Foreground="Black" Margin="0,0,0,20"/>
-
-                <!-- Stats 4 -->
-                <TextBlock Text="Produced: " FontSize="16" FontWeight="Bold" Foreground="Black"/>
-                <TextBlock Text="{Binding ProducedCount}" FontSize="16" Foreground="Black" Margin="0,0,0,20"/>
-            </StackPanel>
-
-            <!-- Reset Button at the Bottom Center -->
-            <Button Content="Reset" Width="100" Height="30" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Command="{Binding ResetCommand}" Margin="0,20,0,0"/>
         </Grid>
     </Grid>
 </Window>
