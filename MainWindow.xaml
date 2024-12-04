@@ -54,7 +54,7 @@
             <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Ellipse Width="200" Height="200" Stroke="Green" StrokeThickness="5"/>
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="{Binding ProductCount}" FontSize="36" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding GoodProductCount}" FontSize="36" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </Grid>
 
@@ -68,7 +68,7 @@
 
             <!-- Buttons at the Bottom -->
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,0">
-                <Button Content="Start/Stop" Width="100" Height="30" Command="{Binding StartStopCommand}" Margin="10,0"/>
+                <Button Width="100" Height="30" Content="{Binding StartStopButtonText}" Command="{Binding StartStopCommand}" Margin="10,0"/>
                 <Button Content="Reset" Width="100" Height="30" Command="{Binding ResetCommand}" Margin="10,0"/>
             </StackPanel>
         </Grid>
