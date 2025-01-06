@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="CTTBOTTLINGQC.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
-  <description asmv2:iconFile="qualitycontrol.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <asmv1:assemblyIdentity name="CTTHennesyQC.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="hennesyico.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="CTTBOTTLINGQC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-    <commandLine file="CTTBOTTLINGQC.exe" parameters="" />
+    <assemblyIdentity name="CTTHennesyQC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="CTTHennesyQC.exe" parameters="" />
   </entryPoint>
   <trustInfo>
     <security>
@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CTTBOTTLINGQC.exe" size="628656">
-      <assemblyIdentity name="CTTBOTTLINGQC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CTTHennesyQC.exe" size="460208">
+      <assemblyIdentity name="CTTHennesyQC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Q3GazjNM74i+h1nPVwrKdntMZWIlvZTGJea483ZOVEE=</dsig:DigestValue>
+        <dsig:DigestValue>cZylf3rKhKnZYdTjNMDFkVn/XHrXdloAPCtxTo7pqkw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -390,7 +390,7 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CTTBOTTLINGQC.exe.config" size="1561">
+  <file name="CTTHennesyQC.exe.config" size="1561">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -399,13 +399,13 @@
       <dsig:DigestValue>smXR/jRU5xRsNZ5vMkLvPfU850jRSRjcLDhF7MrioKk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="qualitycontrol.ico" size="270398">
+  <file name="hennesyico.ico" size="84188">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>hJs823/MZOcFSyzeKbtZ8HGJ8sHJRET2yjVKGs+ky3s=</dsig:DigestValue>
+      <dsig:DigestValue>aidXv2QUNgjgCqmNFzlM7xtfWzpNXzP8T7ba+ptggPk=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

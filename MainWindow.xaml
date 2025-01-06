@@ -15,6 +15,20 @@
             <!-- Green -->
         </LinearGradientBrush>
     </Window.Background>
+    <Window.Resources>
+        <!-- Green Full Circle Flash Animation -->
+        <Storyboard x:Key="GoodFlashAnimation">
+            <ColorAnimation Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                        From="Transparent" To="Green" Duration="0:0:0.5" AutoReverse="True"/>
+        </Storyboard>
+
+        <!-- Red Full Circle Flash Animation -->
+        <Storyboard x:Key="BadFlashAnimation">
+            <ColorAnimation Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                        From="Transparent" To="Red" Duration="0:0:0.5" AutoReverse="True"/>
+        </Storyboard>
+    </Window.Resources>
+
     <Grid>
         <!-- Main Layout -->
         <Grid.ColumnDefinitions>
@@ -50,13 +64,15 @@
                 <!-- Bad Product Count -->
             </Grid.ColumnDefinitions>
 
-            <!-- Product Count Circle with Counter -->
+            <!-- Good Product Circle -->
             <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Ellipse Width="200" Height="200" Stroke="Green" StrokeThickness="5"/>
+                <Ellipse x:Name="GoodEllipse" Width="200" Height="200" Stroke="Green" StrokeThickness="5" Fill="Transparent"/>
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Text="{Binding GoodProductCount}" FontSize="36" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </Grid>
+
+
 
             <!-- Bad Product Count Circle with Counter -->
             <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
