@@ -7,11 +7,15 @@
       "RelativeMoniker": "D:0:0:{F339BBBD-BC8A-4DE9-9029-0FFBEE430928}|HennessyQC.csproj|solutionrelative:viewmodels\\mainviewmodel .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F339BBBD-BC8A-4DE9-9029-0FFBEE430928}|HennessyQC.csproj|c:\\users\\anassd\\desktop\\hennessyqc\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F339BBBD-BC8A-4DE9-9029-0FFBEE430928}|HennessyQC.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F339BBBD-BC8A-4DE9-9029-0FFBEE430928}|HennessyQC.csproj|C:\\Users\\AnassD\\Desktop\\HennessyQC\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{F339BBBD-BC8A-4DE9-9029-0FFBEE430928}|HennessyQC.csproj|solutionrelative:mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F339BBBD-BC8A-4DE9-9029-0FFBEE430928}|HennessyQC.csproj|c:\\users\\anassd\\desktop\\hennessyqc\\services\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F339BBBD-BC8A-4DE9-9029-0FFBEE430928}|HennessyQC.csproj|C:\\Users\\AnassD\\Desktop\\HennessyQC\\services\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F339BBBD-BC8A-4DE9-9029-0FFBEE430928}|HennessyQC.csproj|solutionrelative:services\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -32,11 +36,23 @@
         },
         {
           "DockedWidth": 316,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\AnassD\\Desktop\\HennessyQC\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\AnassD\\Desktop\\HennessyQC\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-07T14:42:35.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Utilities.cs",
               "DocumentMoniker": "C:\\Users\\AnassD\\Desktop\\HennessyQC\\Services\\Utilities.cs",
               "RelativeDocumentMoniker": "Services\\Utilities.cs",
@@ -55,20 +71,20 @@
               "RelativeDocumentMoniker": "ViewModels\\MainViewModel .cs",
               "ToolTip": "C:\\Users\\AnassD\\Desktop\\HennessyQC\\ViewModels\\MainViewModel .cs",
               "RelativeToolTip": "ViewModels\\MainViewModel .cs",
-              "ViewState": "AQIAAIkAAAAAAAAAAAAWwI0AAAAIAAAA",
+              "ViewState": "AQIAAJIAAAAAAAAAAAAuwOkAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-08T11:34:51.531Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\AnassD\\Desktop\\HennessyQC\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
               "ToolTip": "C:\\Users\\AnassD\\Desktop\\HennessyQC\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAmAAAA",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAgwHEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-08T11:31:09.02Z",
               "EditorCaption": ""

@@ -67,45 +67,50 @@
                         Grid.Row="1" />
             </Grid>
         </DockPanel>
-
-        <!-- Main Data Section -->
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <!-- Top Section -->
-                <RowDefinition Height="Auto"/>
-                <!-- Buttons -->
+                <!-- Row for the circles (Good and Bad Product Count) -->
+                <RowDefinition Height="*" />
+                <!-- Row for the Log Display TextBox -->
+                <RowDefinition Height="Auto" />
+                <!-- Row for the buttons -->
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <!-- Product Count -->
-                <ColumnDefinition Width="1*"/>
-                <!-- Bad Product Count -->
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
             <!-- Good Product Circle -->
-            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">
                 <Ellipse x:Name="GoodEllipse" Width="200" Height="200" Stroke="Green" StrokeThickness="5" Fill="Transparent"/>
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Text="{Binding GoodProductCount}" FontSize="36" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </Grid>
 
-
-
             <!-- Bad Product Count Circle with Counter -->
-            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">
                 <Ellipse Width="200" Height="200" Stroke="Red" StrokeThickness="5"/>
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Text="{Binding BadProductCount}" FontSize="36" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </Grid>
 
+            <!-- Log Display TextBox, aligned below the circles and above the buttons -->
+            <TextBox Grid.Row="1" Margin="10" Height="100"  Background="LightGray"
+             VerticalScrollBarVisibility="Auto"
+             HorizontalScrollBarVisibility="Auto"
+             IsReadOnly="True"
+             TextWrapping="Wrap"
+             Name="LogTextBox" Grid.ColumnSpan="2"  Text="{Binding LogText}" />
+
             <!-- Buttons at the Bottom -->
-            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,0">
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
                 <Button Width="100" Height="30" Content="{Binding StartStopButtonText}" Command="{Binding StartStopCommand}" Margin="10,0"/>
                 <Button Content="Reset" Width="100" Height="30" Command="{Binding ResetCommand}" Margin="10,0"/>
             </StackPanel>
         </Grid>
+
     </Grid>
 </Window>
