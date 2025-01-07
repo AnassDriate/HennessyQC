@@ -24,6 +24,7 @@ namespace WpfApp1.ViewModels
     {
         private int _goodProductCount;
         private int _badProductCount;
+        private string _leftPanelText; // New property for LeftPanelText
 
         private Thread _workerThread; // Thread reference
         private bool _isRunning;      // Status flag
@@ -44,6 +45,7 @@ namespace WpfApp1.ViewModels
             // Initialize default values
             GoodProductCount = 0;
             BadProductCount = 0;
+            LeftPanelText = "Welcome to the Quality Control App";
 
             // Commands
             ResetCommand = new RelayCommand(ResetCounters);
@@ -73,6 +75,16 @@ namespace WpfApp1.ViewModels
                 _goodProductCount = value;
                 OnPropertyChanged(nameof(GoodProductCount));
 
+            }
+        }
+        // Property for LeftPanelText
+        public string LeftPanelText
+        {
+            get { return _leftPanelText; }
+            set
+            {
+                _leftPanelText = value;
+                OnPropertyChanged(nameof(LeftPanelText)); // Notify UI when this changes
             }
         }
 
@@ -128,64 +140,24 @@ namespace WpfApp1.ViewModels
 
         private void QualityCheck()
         {
-            string rev_uid = null;
-            string p_uid = null;
+
             while (_isRunning)
             {
                 try
                 {
                     // Call the ReadUrl function to get the URL
                     string url = Utilities.ReadUrl(reader); // Ensure 'reader' is properly initialized
-                    Log.Information("--------- "+url);
+                    //Log.Information("--------- "+url);
                     if (string.IsNullOrEmpty(url))
                     {
                         //Log.Information("No URL read or invalid URL, Dead tag");
                         continue; // Skip to the next iteration if the URL is invalid
                     }
-                    /* ntag.nxp.com/223?m=040C5322C81490x000003xCI73401CC0xCEB95EF769811E33 */
-
-                    // Find the starting index of "m="
-                    int startIndex = url.IndexOf("m=") + 2; // Start after 'm='
-                    if (startIndex > 1) // Ensure 'm=' was found
-                    {
-                        // Find the position of the next 'x' after 'm='
-                        int endIndex = url.IndexOf('x', startIndex);
-                        if (endIndex > startIndex)
-                        {
-                            // Extract the substring between 'm=' and 'x'
-                            rev_uid = url.Substring(startIndex, endIndex - startIndex);
-                            Log.Information($"Extracted UID: {rev_uid}");
-                        }
-                        else
-                        {
-                            Log.Warning("Ending 'x' not found after 'm=', skipping URL.");
-                            continue; // Skip if 'x' is not found
-                        }
-                    }
-                    else
-                    {
-                        Log.Warning("'m=' not found in URL, skipping.");
-                        continue; // Skip if 'm=' is not found
-                    }
-
-                    // Check if rev_uid equals p_uid
-                    if (rev_uid == p_uid)
-                    {
-                        Log.Information("rev_uid matches p_uid, skipping...");
-                        continue; // Skip this iteration if they match
-                    }
-
                     // Check if the product is closed
                     if (Utilities.CheckIfClosed(url))
                     {
                         GoodProductCount++;
                         reader.Mifare.beep();
-                        //Application.Current.Dispatcher.Invoke(() =>
-                        //{
-                        //    var goodFlash = (Storyboard)Application.Current.MainWindow.FindResource("GoodFlashAnimation");
-                        //    Storyboard.SetTarget(goodFlash, Application.Current.MainWindow.FindName("GoodEllipse") as FrameworkElement);
-                        //    goodFlash.Begin();
-                        //});
                     }
                     else
                     {
@@ -196,9 +168,7 @@ namespace WpfApp1.ViewModels
                         }
                     }
 
-                    p_uid = rev_uid; // Example: assign `rev_uid` to `p_uid`
-
-                    // Simulate processing delay (optional)
+                    LeftPanelText = Utilities.readchipmem(reader);
                     Thread.Sleep(500); // Adjust the delay as needed
                 }
                 catch (Exception ex)
@@ -215,6 +185,8 @@ namespace WpfApp1.ViewModels
             Log.Information("Counters reseted...");
             BadProductCount = 0;
             GoodProductCount = 0;
+            LeftPanelText = string.Empty;
+
         }
         private void OpenAbout(object obj)
         {

@@ -40,13 +40,32 @@
 
         <!-- Left Panel -->
         <DockPanel Grid.Column="0" Background="LightGray">
-            <!-- Spacer to Push Content Up -->
-            <StackPanel DockPanel.Dock="Top">
-                <!-- Placeholder for other buttons or content -->
-            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <!-- Text Area -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Button -->
+                </Grid.RowDefinitions>
 
-            <!-- About Button at the Bottom -->
-            <Button Content="About" Height="40" Margin="0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" DockPanel.Dock="Bottom" Command="{Binding AboutCommand}"/>
+                <!-- TextBlock for Displaying Text -->
+                <TextBlock Text="{Binding LeftPanelText}" 
+                           FontSize="9" 
+                           Foreground="Black" 
+                           Margin="5,5,5,0" 
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Stretch" 
+                           HorizontalAlignment="Stretch"
+                           Grid.Row="0" />
+
+                <!-- About Button -->
+                <Button Content="About" 
+                        Height="40" 
+                        Margin="10" 
+                        HorizontalAlignment="Stretch" 
+                        Command="{Binding AboutCommand}" 
+                        Grid.Row="1" />
+            </Grid>
         </DockPanel>
 
         <!-- Main Data Section -->

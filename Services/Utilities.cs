@@ -11,6 +11,7 @@ namespace WpfApp1.Services
 {
     static internal class Utilities
     {
+        private static byte[] lastReadUid = null;
         public static string doublethecurrant(BitArray cttt)
         {
             // extraction de current 
@@ -102,13 +103,41 @@ namespace WpfApp1.Services
             {
                 Log.Information("null , Reader is not initialized");
                 return null; // Reader is not initialized
-              
             }
 
             try
             {
                 reader.Mifare.rfReset();
+
+                // Retrieve the UIDs of tags currently in the field
+                byte[][] uids = reader.Mifare.ShowCards();
+                if (uids == null || uids.Length == 0)
+                {
+                  //  Log.Information("No UIDs detected");
+                    return null;
+                }
+
+                // Extract the first UID (assuming one tag in the field)
+                byte[] currentUid = uids[0];
+                if (currentUid == null || currentUid.Length == 0)
+                {
+                    Log.Information("Failed to extract UID");
+                    return null;
+                }
+
+                // Check if this UID has already been read
+                if (lastReadUid != null && currentUid.SequenceEqual(lastReadUid))
+                {
+                   // Log.Information("Duplicate UID detected, skipping processing");
+                    return null;
+                }
+
+                // Store the current UID for future comparisons
+                lastReadUid = currentUid;
+
+
                 byte[] data = reader.Mifare.ReadUltralightCUserData();
+             
                 if (data == null || data.Length == 0)
                 {
                     Log.Information("null , data length 0");
@@ -139,7 +168,8 @@ namespace WpfApp1.Services
             }
             catch (Exception ex)
             {
-                Log.Error("read url fail" + ex.Message);
+                /* Otherwise the logs will explode */
+                //Log.Error("read url fail" + ex.Message);
                 return null;
             }
         }
